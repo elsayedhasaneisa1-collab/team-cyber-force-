@@ -1,7 +1,7 @@
 const siteData = {
   site: {
     name: "Team Cyber Force",
-    description: "نحن فريق نقدم شروحات في مختلف المجالات",
+    description: "فريق سايبر فورث يقدم احدث اصداراته",
     logo: "logo.png",
     color: "#00a3ff"
   },
@@ -41,6 +41,12 @@ const siteData = {
       role: "مدرب",
       image: "mo.png",
       whatsapp: "201123058983"
+    }, 
+    {
+      name: "Mero",
+      role: "مديره اعمال",
+      image: "mero.png",
+      whatsapp: "201128996872"
     }
   ],
 
