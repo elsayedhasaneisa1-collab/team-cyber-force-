@@ -202,6 +202,7 @@ img {
 }
 
 /* ===== الكروت ===== */
+/* 👈 ظاهرة افتراضياً عشان لو الأنيميشن وقع متبقاش فاضية */
 .card {
   background: var(--card);
   padding: 40px 25px;
@@ -209,10 +210,21 @@ img {
   text-align: center;
   border: 1px solid var(--border);
   transition: all 0.4s;
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   position: relative;
   overflow: hidden;
+}
+
+/* لو الأنيميشن شغال، نخفيها في الأول */
+.card:not(.visible) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card::before {
@@ -222,11 +234,6 @@ img {
   background: radial-gradient(circle at top, rgba(0, 163, 255, 0.08), transparent 70%);
   opacity: 0;
   transition: opacity 0.4s;
-}
-
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .card:hover {
