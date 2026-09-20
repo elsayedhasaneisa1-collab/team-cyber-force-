@@ -1,58 +1,322 @@
-:root { --main-color: #2563eb; }
+:root {
+  --main-color: #00a3ff;
+  --main-dark: #0072b8;
+  --dark: #05080f;
+  --card: #0d1420;
+  --border: rgba(0, 163, 255, 0.2);
+  --text: #e8eef7;
+  --muted: #7d8aa1;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: Tahoma, sans-serif;
-  background: #f5f7fb;
-  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
 }
 
-header {
-  background: var(--main-color);
-  color: white;
+/* ===== خلفية المربعات ===== */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 163, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 163, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -2;
+  animation: gridMove 20s linear infinite;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 50px 50px; }
+}
+
+/* ===== توهج أزرق ===== */
+.glow-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0, 163, 255, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(0, 100, 255, 0.15), transparent 45%);
+  z-index: -1;
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* ===== الهيدر ===== */
+.hero {
+  min-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px;
 }
 
-header img {
-  width: 80px;
+.logo {
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
+  border: 3px solid var(--main-color);
+  box-shadow:
+    0 0 25px rgba(0, 163, 255, 0.6),
+    0 0 60px rgba(0, 163, 255, 0.3),
+    inset 0 0 25px rgba(0, 163, 255, 0.2);
+  margin-bottom: 25px;
+  animation: float 3s ease-in-out infinite;
+  object-fit: cover;
 }
 
-section {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-h2 {
+.hero h1 {
+  font-size: 3.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00a3ff, #66d9ff, #00a3ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  animation: shine 3s linear infinite;
+  letter-spacing: 1px;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== الأزرار ===== */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--main-color);
   color: var(--main-color);
-  border-right: 4px solid var(--main-color);
-  padding-right: 10px;
+  box-shadow: 0 0 15px rgba(0, 163, 255, 0.2);
+}
+
+.btn-outline:hover {
+  background: var(--main-color);
+  color: var(--dark);
+  box-shadow: 0 0 30px rgba(0, 163, 255, 0.6);
+}
+
+/* ===== الأقسام ===== */
+.section {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 25px;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 55px;
+  position: relative;
+  color: var(--text);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--main-color), transparent);
+  margin: 15px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 15px var(--main-color);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
 }
 
+/* ===== الكروت ===== */
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: var(--card);
+  padding: 35px 25px;
+  border-radius: 20px;
   text-align: center;
+  border: 1px solid var(--border);
+  transition: all 0.4s;
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
 }
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0, 163, 255, 0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--main-color);
+  box-shadow:
+    0 15px 40px rgba(0, 163, 255, 0.25),
+    0 0 0 1px rgba(0, 163, 255, 0.3);
+}
+
+.card:hover::before { opacity: 1; }
 
 .card img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--main-color);
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(0, 163, 255, 0.4);
+  position: relative;
 }
 
-footer {
-  background: #1e293b;
+.card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card .role {
+  color: var(--main-color);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.card .whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
   color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.card .whatsapp-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 25px rgba(37, 211, 102, 0.6);
+}
+
+/* ===== كروت الخدمات ===== */
+.service-card {
+  padding: 45px 25px;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--main-color), #66d9ff);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+}
+
+.service-card:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.service-icon {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: transform 0.4s;
+  filter: drop-shadow(0 0 18px rgba(0, 163, 255, 0.6));
+  position: relative;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+/* ===== الفوتر ===== */
+footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+/* ===== موبايل ===== */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.3rem; }
+  .section-title { font-size: 1.7rem; }
+  .logo { width: 95px; height: 95px; }
+  .btn { padding: 12px 24px; font-size: 0.9rem; }
 }

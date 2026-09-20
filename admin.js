@@ -1,21 +1,59 @@
 const siteData = {
   site: {
-    name: "Team Cyber Force ",
-    description: "تيم سايبر فورث الخاص بنا نحن فريق نقدم شروحات في مختلف المجالات",
-    logo: "logo.png",              // 👈 من غير أي مسار
-    color: "#2563eb"
+    name: "Team Cyber Force",
+    description: "نحن فريق نقدم شروحات في مختلف المجالات",
+    logo: "logo.png",
+    color: "#00a3ff"
   },
-  team: [
+
+  services: [
     {
-      name: "Sayoda",
-      role: "مطور ويب",
-      image: "sayed.png"           // 👈 اسم الصورة بس
+      icon: "💻",
+      title: "تطوير المواقع",
+      description: "تصميم وتطوير مواقع احترافية متجاوبة مع جميع الأجهزة"
     },
     {
-      name: "mo elhakem",
-      role: "مدرب",
-      image: "mo.png"
+      icon: "🎓",
+      title: "تدريب وشروحات",
+      description: "كورسات وشرحات مبسطة في مختلف مجالات التقنية"
+    },
+    {
+      icon: "🛡️",
+      title: "الأمن السيبراني",
+      description: "حماية المواقع والأنظمة من الاختراقات والثغرات"
+    },
+    {
+      icon: "📱",
+      title: "تصميم واجهات",
+      description: "تصميم واجهات مستخدم عصرية وجذابة"
     }
   ],
-  // ...
+
+  team: [
+    {
+      name: "EL-sayed Hasan",
+      role: "مطور ويب",
+      image: "sayed.png",
+      whatsapp: "201128351702"
+    },
+    {
+      name: "Mohamed Emad",
+      role: "مدرب",
+      image: "mo.png",
+      whatsapp: "201123058983"
+    }
+  ],
+
+  projects: [
+    {
+      title: "منصه Cyber force ",
+      description: "منصه تعليميه تقدم شروحات في مختلف المجالات",
+      link: "https://elsayedhasaneisa1-collab.github.io/SAYODA-CYBER-FORCE/login.html"
+    }
+  ],
+
+  contact: {
+    email: "elsayedhasaneisa1@gmail.com",
+    whatsapp: "201041254010"
+  }
 };

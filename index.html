@@ -2,34 +2,95 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Team Cyber force</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== الأرشفة الأساسية ===== -->
+  <title>Team Cyber Force | فريق تطوير وأمن سيبراني</title>
+  <meta name="description" content="Team Cyber Force - فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني. تعرف على خدماتنا وفريقنا وتواصل معنا عبر واتساب.">
+  <meta name="keywords" content="Team Cyber Force, تطوير مواقع, أمن سيبراني, تدريب, شروحات, فريق برمجة, تصميم واجهات">
+  <meta name="author" content="Team Cyber Force">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/">
+
+  <!-- ===== Open Graph (فيسبوك / واتساب) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Team Cyber Force | فريق تطوير وأمن سيبراني">
+  <meta property="og:description" content="فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني">
+  <meta property="og:url" content="https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/">
+  <meta property="og:image" content="https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/logo.png">
+  <meta property="og:locale" content="ar_AR">
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Team Cyber Force">
+  <meta name="twitter:description" content="فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني">
+  <meta name="twitter:image" content="https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/logo.png">
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- ===== الخطوط والستايل ===== -->
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- ===== بيانات منظمة (Schema.org) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Team Cyber Force",
+    "url": "https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/",
+    "logo": "https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/logo.png",
+    "description": "فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني",
+    "sameAs": []
+  }
+  </script>
 </head>
+
 <body>
 
-  <header>
-    <img id="logo" src="" alt="logo">
-    <h1 id="site-name"></h1>
+  <!-- خلفية المربعات -->
+  <div class="grid-bg"></div>
+  <div class="glow-bg"></div>
+
+  <!-- الهيدر -->
+  <header class="hero">
+    <img id="logo" src="" alt="Team Cyber Force Logo" class="logo">
+    <h1 id="site-name" class="glitch"></h1>
     <p id="site-desc"></p>
+    <div class="hero-buttons">
+      <a id="main-whatsapp" class="btn btn-whatsapp" target="_blank">
+        💬 تواصل واتساب
+      </a>
+      <a href="#services" class="btn btn-outline">🛠️ خدماتنا</a>
+      <a href="#team" class="btn btn-outline">تعرف على الفريق</a>
+    </div>
   </header>
 
-  <section>
-    <h2>أعضاء الفريق</h2>
+  <!-- خدماتنا -->
+  <section id="services" class="section">
+    <h2 class="section-title">خدماتنا</h2>
+    <div id="services-container" class="grid"></div>
+  </section>
+
+  <!-- الفريق -->
+  <section id="team" class="section">
+    <h2 class="section-title">أعضاء الفريق</h2>
     <div id="team-container" class="grid"></div>
   </section>
 
-  <section>
-    <h2>مشاريعنا</h2>
+  <!-- المشاريع -->
+  <section id="projects" class="section">
+    <h2 class="section-title">مشاريعنا</h2>
     <div id="projects-container" class="grid"></div>
   </section>
 
+  <!-- الفوتر -->
   <footer>
-    <p>تواصل معنا: <span id="email"></span></p>
+    <p>© 2026 Team Cyber Force</p>
   </footer>
 
-  <!-- مهم: الترتيب هنا -->
   <script src="admin.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
