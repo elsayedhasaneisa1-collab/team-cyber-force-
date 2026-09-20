@@ -1,62 +1,83 @@
 // ============================================
-//        🛡️ الحماية (للمتصفح العادي)
+//   🛡️ منع الضغط المستمر واللمس المطول
 // ============================================
 
-// منع الكليك اليمين
+let pressTimer = null;
+
+document.addEventListener('touchstart', function(e) {
+  pressTimer = setTimeout(function() {
+    e.preventDefault();
+    return false;
+  }, 500);
+}, { passive: false });
+
+document.addEventListener('touchend', function() {
+  clearTimeout(pressTimer);
+});
+
+document.addEventListener('touchmove', function() {
+  clearTimeout(pressTimer);
+});
+
+document.addEventListener('selectstart', function(e) {
+  e.preventDefault();
+  return false;
+});
+
 document.addEventListener('contextmenu', function(e) {
   e.preventDefault();
   return false;
 });
 
-// منع اختصارات لوحة المفاتيح الخطيرة
-document.addEventListener('keydown', function(e) {
-
-  // منع F12
-  if (e.key === 'F12' || e.keyCode === 123) {
-    e.preventDefault();
-    return false;
-  }
-
-  // منع Ctrl+Shift+I / J / C (أدوات المطور)
-  if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(e.key)) {
-    e.preventDefault();
-    return false;
-  }
-
-  // منع Ctrl+U (عرض المصدر)
-  if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
-    e.preventDefault();
-    return false;
-  }
-
-  // منع Ctrl+S (حفظ الصفحة)
-  if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
-    e.preventDefault();
-    return false;
-  }
-
-  // منع Ctrl+P (طباعة)
-  if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
-    e.preventDefault();
-    return false;
-  }
-
-  // منع Ctrl+A (تحديد الكل)
-  if (e.ctrlKey && (e.key === 'a' || e.key === 'A')) {
-    e.preventDefault();
-    return false;
-  }
-
-  // منع Ctrl+C (نسخ)
-  if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+document.addEventListener('mousedown', function(e) {
+  if (e.target.tagName === 'IMG') {
     e.preventDefault();
     return false;
   }
 });
 
-// منع سحب الصور
 document.addEventListener('dragstart', function(e) {
-  if (e.target.tagName === 'IMG') {
+  e.preventDefault();
+  return false;
+});
+
+// ============================================
+//        🛡️ اختصارات الكيبورد
+// ============================================
+
+document.addEventListener('keydown', function(e) {
+
+  if (e.key === 'F12' || e.keyCode === 123) {
+    e.preventDefault();
+    return false;
+  }
+
+  if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(e.key)) {
+    e.preventDefault();
+    return false;
+  }
+
+  if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+    e.preventDefault();
+    return false;
+  }
+
+  if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+    e.preventDefault();
+    return false;
+  }
+
+  if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
+    e.preventDefault();
+    return false;
+  }
+
+  if (e.ctrlKey && (e.key === 'a' || e.key === 'A')) {
+    e.preventDefault();
+    return false;
+  }
+
+  if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
     e.preventDefault();
     return false;
   }
@@ -66,13 +87,11 @@ document.addEventListener('dragstart', function(e) {
 //        🎨 عرض بيانات الموقع
 // ============================================
 
-// الهيدر
 document.getElementById('logo').src = siteData.site.logo;
 document.getElementById('site-name').textContent = siteData.site.name;
 document.getElementById('site-desc').textContent = siteData.site.description;
 document.documentElement.style.setProperty('--main-color', siteData.site.color);
 
-// زر واتساب الرئيسي
 const mainWa = document.getElementById('main-whatsapp');
 mainWa.href = `https://wa.me/${siteData.contact.whatsapp}?text=${encodeURIComponent('مرحبا، عايز أتواصل مع الفريق')}`;
 
@@ -99,7 +118,7 @@ siteData.team.forEach((member, i) => {
 
   teamContainer.innerHTML += `
     <div class="card" style="transition-delay: ${i * 0.1}s">
-      <img src="${member.image}" alt="${member.name}" onerror="this.src='https://via.placeholder.com/120/0d1420/00a3ff?text=${member.name[0]}'" draggable="false">
+      <img src="${member.image}" alt="${member.name}" onerror="this.src='https://via.placeholder.com/180/0d1420/00a3ff?text=${member.name[0]}'" draggable="false">
       <h3>${member.name}</h3>
       <p class="role">${member.role}</p>
       ${member.whatsapp ? `
@@ -141,4 +160,5 @@ document.querySelectorAll('img').forEach(img => {
   img.setAttribute('draggable', 'false');
   img.addEventListener('contextmenu', e => e.preventDefault());
   img.addEventListener('dragstart', e => e.preventDefault());
+  img.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
 });
