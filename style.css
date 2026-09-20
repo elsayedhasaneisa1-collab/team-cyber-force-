@@ -1,0 +1,58 @@
+:root { --main-color: #2563eb; }
+
+body {
+  font-family: Tahoma, sans-serif;
+  background: #f5f7fb;
+  margin: 0;
+}
+
+header {
+  background: var(--main-color);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header img {
+  width: 80px;
+  border-radius: 50%;
+}
+
+section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  color: var(--main-color);
+  border-right: 4px solid var(--main-color);
+  padding-right: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+footer {
+  background: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
