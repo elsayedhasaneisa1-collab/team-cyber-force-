@@ -18,6 +18,21 @@ body {
   color: var(--text);
   overflow-x: hidden;
   position: relative;
+
+  /* منع تحديد النص */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* السماح بتحديد النص في الأزرار والروابط فقط */
+a, button { -webkit-user-select: auto; user-select: auto; }
+
+/* منع سحب الصور */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 /* ===== خلفية المربعات ===== */

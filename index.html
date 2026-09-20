@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ===== الأرشفة الأساسية ===== -->
+  <!-- ===== الأرشفة (مفعّلة) ===== -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="googlebot-image" content="index, follow">
+
+  <!-- ===== SEO أساسي ===== -->
   <title>Team Cyber Force | فريق تطوير وأمن سيبراني</title>
   <meta name="description" content="Team Cyber Force - فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني. تعرف على خدماتنا وفريقنا وتواصل معنا عبر واتساب.">
   <meta name="keywords" content="Team Cyber Force, تطوير مواقع, أمن سيبراني, تدريب, شروحات, فريق برمجة, تصميم واجهات">
   <meta name="author" content="Team Cyber Force">
-  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/">
 
   <!-- ===== Open Graph (فيسبوك / واتساب) ===== -->
@@ -29,11 +33,7 @@
   <!-- ===== Favicon ===== -->
   <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- ===== الخطوط والستايل ===== -->
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-
-  <!-- ===== بيانات منظمة (Schema.org) ===== -->
+  <!-- ===== البيانات المنظمة (Schema.org) ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,10 +41,13 @@
     "name": "Team Cyber Force",
     "url": "https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/",
     "logo": "https://elsayedhasaneisa1-collab.github.io/team-cyber-force-/logo.png",
-    "description": "فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني",
-    "sameAs": []
+    "description": "فريق متخصص في تطوير المواقع، التدريب، والأمن السيبراني"
   }
   </script>
+
+  <!-- ===== الخطوط والستايل ===== -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -55,8 +58,8 @@
 
   <!-- الهيدر -->
   <header class="hero">
-    <img id="logo" src="" alt="Team Cyber Force Logo" class="logo">
-    <h1 id="site-name" class="glitch"></h1>
+    <img id="logo" src="" alt="Team Cyber Force Logo" class="logo" oncontextmenu="return false;" draggable="false">
+    <h1 id="site-name"></h1>
     <p id="site-desc"></p>
     <div class="hero-buttons">
       <a id="main-whatsapp" class="btn btn-whatsapp" target="_blank">
