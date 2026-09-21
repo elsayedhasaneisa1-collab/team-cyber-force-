@@ -55,6 +55,11 @@ const siteData = {
       title: "منصه Cyber force ",
       description: "منصه تعليميه تقدم شروحات في مختلف المجالات",
       link: "https://elsayedhasaneisa1-collab.github.io/SAYODA-CYBER-FORCE/login.html"
+    },
+    {
+      title: "موقع للتحكم في بوتك ",
+      description: "موقع بسيط وواجعه سايبر بالطابع الخاص بنا يسهل التحكم في بوتك علي تيليجرام",
+      link: "https://elsayedhasaneisa1-collab.github.io/Digital-Black-Box-/"
     }
   ],
 
